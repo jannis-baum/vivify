@@ -69,6 +69,7 @@ router.get(/.*/, async (req: Request, res: Response) => {
         <html>
             <head>
                 <title>${title}</title>
+                <link rel="stylesheet" type="text/css" href="/static/colors.css"/>
                 <link rel="stylesheet" type="text/css" href="/static/style.css"/>
                 <link rel="stylesheet" type="text/css" href="/static/markdown.css"/>
                 <link rel="stylesheet" type="text/css" href="/static/highlight.css">
