@@ -1,0 +1,52 @@
+/* --------------------------------------------------------------------------
+ * DARK MODE ---------------------------------------------------------------- */
+
+:root {
+    --bg: black;
+    --bg-highlight: #161616;
+    --bg-code: #333;
+    --bg-mark: rgba(255, 255, 175, 0.8); 
+
+    --text-primary: #aaa;
+    --text-secondary: #6a6a6a; /* #7d7d7d from foot notes */
+    --text-link: #859abc;
+    --text-mark: #222;
+
+    --border-light: #444;
+    --border-dark: #353535;
+    --border-kbd: #242424;
+
+    --alert-note: #a5d5fe;
+    --alert-tip: #b4fa72;
+    --alert-important: #ff8ffd;
+    --alert-warning: #ffaf00;
+    --alert-caution: #ff5f5f;
+}
+
+/* --------------------------------------------------------------------------
+ * LIGHT MODE --------------------------------------------------------------- */
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg: white;
+        --bg-highlight: #f6f8fa;
+        --bg-code: #afb8c133;
+        --bg-mark: rgba(255, 255, 175, 1);
+
+        --text-primary: #1f2328;
+        --text-secondary: #656d76;
+        --text-link: #0969da;
+        --text-mark: #1f2328;
+
+        --border-light: #d8dee4;
+        --border-dark: #d0d7de;
+        --border-kbd: #eff1f3;
+
+        --alert-note: #0969da;
+        --alert-tip: #1a7f37;
+        --alert-important: #8250df;
+        --alert-warning: #bf8700;
+        --alert-caution: #cf222e;
+
+    }
+}
