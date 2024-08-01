@@ -16,6 +16,25 @@
     --border-dark: #353535;
     --border-kbd: #242424;
 
+    --syntax-text: var(--text-primary);
+    --syntax-keyword: #aed7ff;
+    --syntax-entity: #aeafff;
+    --syntax-constant: #d1b0fa;
+    --syntax-string: #d787af;
+    --syntax-symbol: var(--syntax-constant);
+    --syntax-comment: #949494;
+    --syntax-entity-tag: #d7afd7;
+    --syntax-storage-modifier-import: var(--syntax-text);
+
+    --syntax-markup-heading: var(--syntax-text);
+    --syntax-markup-list: var(--syntax-text);
+    --syntax-markup-italic: var(--syntax-text);
+    --syntax-markup-bold: var(--syntax-text);
+    --syntax-markup-inserted-fg: #aff5b4;
+    --syntax-markup-inserted-bg: #033a16;
+    --syntax-markup-deleted-fg: #ffdcd7;
+    --syntax-markup-deleted-bg: #67060c;
+
     --alert-note: #a5d5fe;
     --alert-tip: #b4fa72;
     --alert-important: #ff8ffd;
@@ -42,7 +61,29 @@
         --border-dark: #d0d7de;
         --border-kbd: #eff1f3;
 
-        --alert-note: #0969da;
+        /* source for light mode syntax theme:
+         * https://github.com/highlightjs/highlight.js/blob/main/src/styles/github.css
+         * */
+        --syntax-text: #24292e;
+        --syntax-keyword: #d73a49;
+        --syntax-entity: #6f42c1;
+        --syntax-constant: #005cc5;
+        --syntax-string: #032f62;
+        --syntax-symbol: #e36209;
+        --syntax-comment: #6a737d;
+        --syntax-entity-tag: #22863a;
+        --syntax-storage-modifier-import: var(--syntax-text);
+
+        --syntax-markup-heading: #005cc5;
+        --syntax-markup-list: #735c0f;
+        --syntax-markup-italic: var(--syntax-text);
+        --syntax-markup-bold: var(--syntax-text);
+        --syntax-markup-inserted-fg: #22863a;
+        --syntax-markup-inserted-bg: #f0fff4;
+        --syntax-markup-deleted-fg: #b31d28;
+        --syntax-markup-deleted-bg: #ffeef0;
+
+        --alert-note: var(--text-link);
         --alert-tip: #1a7f37;
         --alert-important: #8250df;
         --alert-warning: #bf8700;
