@@ -1,0 +1,281 @@
+/* --------------------------------------------------------------------------
+ * CODE --------------------------------------------------------------------- */
+pre {
+    background-color: #161616;
+    padding: 1rem;
+    overflow: auto;
+}
+code {
+    background-color: #333;
+    padding: 0.2rem;
+    border-radius: 0.25rem;
+}
+pre > code {
+    background-color: unset;
+    padding: unset;
+}
+
+/* --------------------------------------------------------------------------
+ * LINKS -------------------------------------------------------------------- */
+a {
+    color: #859abc;
+    text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+a.header-anchor {
+    opacity: 0;
+    position: absolute;
+    transform: translateX(-2rem);
+    width: 2rem;
+}
+a.header-anchor:hover,
+h1:hover a.header-anchor, h2:hover a.header-anchor,
+h3:hover a.header-anchor, h4:hover a.header-anchor,
+h5:hover a.header-anchor, h6:hover a.header-anchor {
+    opacity: 1;
+}
+a#top-nav-up:before { content: '◂'}
+
+/* --------------------------------------------------------------------------
+ * TABLES ------------------------------------------------------------------- */
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+th, td {
+    padding: 6px 13px;
+    border: 1px solid #444;
+}
+
+tr:nth-child(even) {
+    background-color: #161616;
+}
+
+/* --------------------------------------------------------------------------
+ * LISTS -------------------------------------------------------------------- */
+li.task-list-item { list-style: none; }
+input.task-list-item-checkbox {
+    position: absolute;
+    transform: translateX(-1.44rem);
+}
+
+/* --------------------------------------------------------------------------
+ * HORIZONTAL RULE ---------------------------------------------------------- */
+hr {
+    height: .25em;
+    margin: 24px 0;
+    background-color: #353535;
+    border: 0;
+}
+
+/* --------------------------------------------------------------------------
+ * FOOTNOTE ----------------------------------------------------------------- */
+.footnotes-sep {
+    display: none;
+}
+section.footnotes {
+    font-size: 0.75rem;
+    margin-top: 1.25rem;
+    border-top: 0.2px solid #444;
+    color: #7d7d7d;
+}
+
+/* --------------------------------------------------------------------------
+ * DEFIITION LISTS ---------------------------------------------------------- */
+dl {
+    display: flex;
+    flex-flow: row wrap;
+}
+dt {
+    flex-basis: 20%;
+    text-align: right;
+    font-weight: bold;
+    box-sizing: border-box;
+    padding: 0.25em;
+    margin: 0.25em 0;
+}
+dd {
+    flex-basis: 80%;
+    flex-grow: 1;
+    text-align: left;
+    box-sizing: border-box;
+    border-left: 0.2px solid #444;
+    margin: 0;
+    padding: 0.25em;
+    margin: 0.25em 0;
+}
+dd + dd {
+    margin-left: 20%;
+    margin-top: -0.25em;
+}
+dt + dt {
+    margin-right: 80%;
+    margin-top: -0.25em;
+}
+dt + dt + dd {
+    margin-left: 20%;
+    margin-top: -2.25em; /* Align definition with last term */
+}                        /* Self height - margin - padding */
+
+/* --------------------------------------------------------------------------
+ * QUOTES AND ALERTS--------------------------------------------------------- */
+blockquote {
+    padding: 0 1rem;
+    color: #6a6a6a;
+    border-left: .25rem solid #353535;
+    margin-left: 0;
+}
+/* GitHub-style alerts */
+.markdown-alert {
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+}
+.markdown-alert > :first-child {
+    margin-top: 0;
+}
+.markdown-alert > :last-child {
+    margin-bottom: 0;
+}
+.markdown-alert .markdown-alert-title {
+    display: flex;
+    font-weight: 500;
+    align-items: center;
+    line-height: 1;
+}
+.markdown-alert .markdown-alert-title .octicon {
+    margin-right: 0.5rem;
+    display: inline-block;
+    overflow: visible !important;
+    vertical-align: text-bottom;
+    fill: currentColor;
+}
+.markdown-alert-note {
+    border-left: .25rem solid var(--color-alert-note);
+}
+.markdown-alert-note .markdown-alert-title {
+    color: var(--color-alert-note);
+}
+.markdown-alert-tip {
+    border-left: .25rem solid var(--color-alert-tip);
+}
+.markdown-alert-tip .markdown-alert-title {
+    color: var(--color-alert-tip);
+}
+.markdown-alert-important {
+    border-left: .25rem solid var(--color-alert-important);
+}
+.markdown-alert-important .markdown-alert-title {
+    color: var(--color-alert-important);
+}
+.markdown-alert-warning {
+    border-left: .25rem solid var(--color-alert-warning);
+}
+.markdown-alert-warning .markdown-alert-title {
+    color: var(--color-alert-warning);
+}
+.markdown-alert-caution {
+    border-left: .25rem solid var(--color-alert-caution);
+}
+.markdown-alert-caution .markdown-alert-title {
+    color: var(--color-alert-caution);
+}
+/* --------------------------------------------------------------------------
+ * MISCELLANEOUS ------------------------------------------------------------ */
+/* headings */
+h1, h2 {
+    border-bottom: 0.2px solid #444;
+    padding-bottom: 0.75rem;
+}
+/* images */
+img, svg { max-width: 100%; }
+
+/* keyboard */
+kbd {
+    background-color: #161616;
+    border: 1px solid #242424;
+    box-shadow: inset 0 -1px 0 #242424;
+    padding: 3px 5px;
+    border-radius: 6px;
+}
+
+/* highlight/mark */
+mark {
+    background-color: rgba(255, 255, 175, 0.8);
+    color: #222;
+}
+
+/* --------------------------------------------------------------------------
+ * LIGHT MODE --------------------------------------------------------------- */
+@media (prefers-color-scheme: light) {
+    :root {
+        --color-alert-note: #0969da;
+        --color-alert-tip: #1a7f37;
+        --color-alert-important: #8250df;
+        --color-alert-warning: #bf8700;
+        --color-alert-caution: #cf222e;
+    }
+    html {
+        background-color: white;
+        color: #1f2328;
+    }
+
+    h1, h2 {
+        border-bottom: 0.2px solid #d8dee4;
+    }
+
+    pre {
+        background-color: #f6f8fa;
+    }
+
+    code {
+        background-color: #afb8c133;
+    }
+
+    a {
+        color: #0969da;
+    }
+
+    a#parent-dir {
+        background-color: #afb8c133;
+    }
+
+    blockquote {
+        color: #656d76;
+        border-left: .25em solid #d0d7de;
+    }
+
+    th, td {
+        border: 1px solid #d8dee4;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f6f8fa;
+    }
+
+    hr {
+        background-color: #d0d7de;
+    }
+
+    section.footnotes {
+        border-top: 0.2px solid #d8dee4;
+        color: #656d76;
+    }
+
+    dd {
+        border-left: 0.2px solid #d8dee4;
+    }
+
+    kbd {
+        background-color: #f6f8fa;
+        border: 1px solid #eff1f3;
+        box-shadow: inset 0 -1px 0 #eff1f3;
+    }
+
+    mark {
+        background-color: rgba(255, 255, 175, 1);
+        color: #1f2328;
+    }
+}
