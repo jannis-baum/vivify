@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 html {
     background-color: var(--bg);
     color: var(--text-primary);
@@ -6,7 +10,6 @@ html {
 }
 
 body {
-    box-sizing: border-box;
     padding: 2rem 4rem;
 }
 
