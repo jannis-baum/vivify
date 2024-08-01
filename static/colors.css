@@ -40,6 +40,8 @@
     --alert-important: #ff8ffd;
     --alert-warning: #ffaf00;
     --alert-caution: #ff5f5f;
+
+    --ipynb-bg-error: rgba(255, 0, 0, 0.1);
 }
 
 /* --------------------------------------------------------------------------
@@ -89,5 +91,6 @@
         --alert-warning: #bf8700;
         --alert-caution: #cf222e;
 
+        --ipynb-bg-error: rgba(255, 0, 0, 0.1);
     }
 }
