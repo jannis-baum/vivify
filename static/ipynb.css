@@ -19,9 +19,9 @@
     padding: unset;
     background-color: unset;
 }
-.ipynb-output-stream-stderr { background-color: rgba(255, 0, 0, 0.1); }
+.ipynb-output-stream-stderr { background-color: var(--ipynb-bg-error); }
 
-.ipynb-output-error { background-color: rgba(255, 0, 0, 0.1); }
+.ipynb-output-error { background-color: var(--ipynb-bg-error); }
 
 .ipynb-output-plain {
     padding: unset;

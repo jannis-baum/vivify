@@ -15,6 +15,7 @@ import { Renderer } from './parser.js';
 import { AnsiUp } from 'ansi_up';
 
 const ansiup = new AnsiUp();
+ansiup.use_classes = true;
 const renderAnsi: Renderer = (content: string) => ansiup.ansi_to_html(content);
 
 function joinMultilineString(str: MultilineString): string {
