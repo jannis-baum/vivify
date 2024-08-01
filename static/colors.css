@@ -55,7 +55,7 @@
         --text-primary: #1f2328;
         --text-secondary: #656d76;
         --text-link: #0969da;
-        --text-mark: #1f2328;
+        --text-mark: var(--text-primary);
 
         --border-light: #d8dee4;
         --border-dark: #d0d7de;
@@ -74,11 +74,11 @@
         --syntax-entity-tag: #22863a;
         --syntax-storage-modifier-import: var(--syntax-text);
 
-        --syntax-markup-heading: #005cc5;
+        --syntax-markup-heading: var(--syntax-constant);
         --syntax-markup-list: #735c0f;
         --syntax-markup-italic: var(--syntax-text);
         --syntax-markup-bold: var(--syntax-text);
-        --syntax-markup-inserted-fg: #22863a;
+        --syntax-markup-inserted-fg: var(--syntax-entity-tag);
         --syntax-markup-inserted-bg: #f0fff4;
         --syntax-markup-deleted-fg: #b31d28;
         --syntax-markup-deleted-bg: #ffeef0;
