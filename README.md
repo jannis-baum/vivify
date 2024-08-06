@@ -50,8 +50,8 @@ updates to any changes as you are typing and the scrolling is smoothly
 synchronized!
 
 See below for a list of existing editor plugins. In case your favorite editor is
-not yet supported, use these as an example to write your own and add it to the
-list!
+not yet supported, use these as an example to write your own or check out the
+[API documentation](docs/api.md) and add it to the list!
 
 #### Existing integration
 
