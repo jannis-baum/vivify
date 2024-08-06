@@ -49,37 +49,40 @@ const openTarget = async (target: string) => {
     }
 };
 
-export const handleArgs = async () => {
-    try {
-        const args = process.argv.slice(2);
-        const positionals: string[] = [];
-        let parseOptions = true;
+export const completeStartup = () => {
+    if (process.env['NODE_ENV'] !== 'development') {
+        // - viv executable waits for this string and then stops printing
+        //   vivify-server's output and terminates
+        // - the string itself is not shown to the user
+        console.log('STARTUP COMPLETE');
+    }
+};
 
-        for (let i = 0; i < args.length; i++) {
-            const arg = args[i];
-            if (!(arg.startsWith('-') && parseOptions)) {
-                positionals.push(arg);
-                continue;
-            }
-            switch (arg) {
-                case '-v':
-                case '--version':
-                    console.log(`vivify-server ${process.env.VERSION ?? 'dev'}`);
-                    break;
-                case '--':
-                    parseOptions = false;
-                    break;
-                default:
-                    console.log(`Unknown option "${arg}"`);
-            }
+export const handleArgs = (): (() => Promise<void>) | undefined => {
+    const args = process.argv.slice(2);
+    const positionals: string[] = [];
+    let parseOptions = true;
+
+    for (let i = 0; i < args.length; i++) {
+        const arg = args[i];
+        if (!(arg.startsWith('-') && parseOptions)) {
+            positionals.push(arg);
+            continue;
         }
-        await Promise.all(positionals.map((target) => openTarget(target)));
-    } finally {
-        if (process.env['NODE_ENV'] !== 'development') {
-            // - viv executable waits for this string and then stops printing
-            //   vivify-server's output and terminates
-            // - the string itself is not shown to the user
-            console.log('STARTUP COMPLETE');
+        switch (arg) {
+            case '-v':
+            case '--version':
+                console.log(`vivify-server ${process.env.VERSION ?? 'dev'}`);
+                return;
+            case '--':
+                parseOptions = false;
+                break;
+            default:
+                console.log(`Unknown option "${arg}"`);
         }
     }
+    return async () => {
+        await Promise.all(positionals.map((target) => openTarget(target)));
+        completeStartup();
+    };
 };

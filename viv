@@ -12,7 +12,7 @@ arguments:
                       source file
 options:
   --help              show this help message and exit
-  --version           show version information
+  --version           show version information and exit
 EOF
 }
 

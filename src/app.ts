@@ -9,7 +9,7 @@ import { router as viewerRouter } from './routes/viewer.js';
 import { router as openRouter } from './routes/_open.js';
 import { setupSockets } from './sockets.js';
 import { urlToPath } from './utils/path.js';
-import { handleArgs } from './cli.js';
+import { completeStartup, handleArgs } from './cli.js';
 
 const app = express();
 app.use(express.json());
@@ -39,11 +39,21 @@ export const { clientsAt, messageClients, openAndMessage } = setupSockets(
     },
 );
 
-get(`${address}/health`, async () => {
-    // server is already running
-    await handleArgs();
-    process.exit(0);
-}).on('error', () => {
-    // server is not running so we start it
-    server.listen(config.port, handleArgs);
-});
+const openTargetsAndCompleteStartup = handleArgs();
+if (openTargetsAndCompleteStartup) {
+    try {
+        get(`${address}/health`, async () => {
+            // server is already running
+            await openTargetsAndCompleteStartup();
+            process.exit(0);
+        }).on('error', () => {
+            // server is not running so we start it
+            server.listen(config.port, openTargetsAndCompleteStartup);
+        });
+    } catch (error) {
+        console.log(error);
+        completeStartup();
+    }
+} else {
+    completeStartup();
+}
