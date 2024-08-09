@@ -7,8 +7,11 @@ import { promisify } from 'util';
 
 const execPromise = promisify(exec);
 export const pmime = async (path: string) => {
+    if (process.platform === 'win32') {
+        path = `C:${path.replaceAll('/', '\\')}`; // TODO: Some Windows hackery
+    }
     const [{ stdout: mime }, stats] = await Promise.all([
-        execPromise(`file --mime-type -b '${path}'`),
+        execPromise(`file --mime-type -b "${path}"`), // Path needs to be wrapped in double quotes on Windows
         stat(path),
     ]);
     // empty files can also be `application/x-empty`
@@ -54,7 +57,7 @@ export const urlToPath = (url: string) => {
 };
 
 export const pathToURL = (path: string, route: string = 'viewer') => {
-    const withoutPrefix = path.startsWith('/') ? path.slice(1) : path;
+    const withoutPrefix = path.startsWith('/') || path.startsWith('\\') ? path.slice(1) : path; // TODO: Windows hack
     return `/${route}/${encodeURIComponent(withoutPrefix).replaceAll('%2F', '/')}`;
 };
 
